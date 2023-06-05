@@ -1,22 +1,29 @@
 import React from 'react'
-import { useAuth } from './auth'
+import { useAuth } from '../../CustomHooks/auth'
+import useProfiles from '../../CustomHooks/useProfiles'
 
 const Profile = () => {
+
     const auth = useAuth()
+    const {isAdmin, isEditor, isAuthor, isUser} = useProfiles({})
 
     const userTypes = []
 
-    if (auth.user?.isAdmin) {
+    if (isAdmin) {
         userTypes.push('admin')
     } 
     
-    if (auth.user?.isCreator) {
-        userTypes.push('creator')
+    if (isEditor) {
+        userTypes.push('editor')
     } 
     
-    if (auth.user?.isAuthor) {
+    if (isAuthor) {
         userTypes.push('author')
     }
+
+    if (isUser) {
+      userTypes.push('user')
+  }
 
     console.log(userTypes)
 
@@ -24,7 +31,6 @@ const Profile = () => {
     <>
       <h1>Profile Page</h1>
       <p>Welcome, {auth.user.username}</p>
-
       <p>You are: {userTypes.map(type => (<span key={type}>{type} </span>))}</p>
 
     </>

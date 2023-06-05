@@ -1,16 +1,19 @@
 import "./App.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Blog from "./Blog";
-import Profile from "./Profile";
-import Menu from "./Menu";
-import BlogPost from "./BlogPost";
-import Login from "./Login";
-import Logout from "./Logout";
-import { AuthProvider, AuthRoute } from "./auth";
-import CreatePost from "./CreatePost";
+import Home from "./components/Home/Home";
+import Blog from "./components/Blog/Blog";
+import Profile from "./components/Profile/Profile";
+import Menu from "./components/Menu/Menu";
+import BlogPost from "./components/Blog/BlogPost";
+import Login from "./components/Login/Login";
+import Logout from "./components/Logout/Logout";
+import { AuthProvider, AuthRoute } from "./CustomHooks/auth";
+import NewPost from "./NewPost";
+import useLocalStorage from "../src/CustomHooks/useLocalStorage";
 
 function App() {
+  const { posts, savePost } = useLocalStorage("posts", []);
+
   return (
     <>
       <HashRouter>
@@ -19,40 +22,48 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
 
-            <Route path="/blog" element={<Blog />}>
-              <Route path=":slug" element={<BlogPost />} />
-              <Route 
-                path="create-post" 
+            <Route
+              path="/blog"
+              element={
+                <Blog posts={posts} />
+              }
+            >
+              <Route
+                path=":slug"
+                element={<BlogPost posts={posts} savePost={savePost} />}
+              />
+              <Route
+                path="create-post"
                 element={
                   <AuthRoute>
-                    <CreatePost />
+                    <NewPost posts={posts} savePost={savePost} />
                   </AuthRoute>
-                  
-                } 
-                />
+                }
+              />
             </Route>
 
-            <Route 
-              path="/profile" 
+            <Route
+              path="/profile"
               element={
                 <AuthRoute>
                   <Profile />
-                </AuthRoute>                
-              } 
-              />
+                </AuthRoute>
+              }
+            />
 
             <Route path="/login" element={<Login />} />
-            
-            <Route 
-              path="/logout" 
+
+            <Route
+              path="/logout"
               element={
                 <AuthRoute>
                   <Logout />
-                </AuthRoute>                
-              } 
-              />
+                </AuthRoute>
+              }
+            />
 
             <Route path="*" element={<p>Not Found</p>} />
+
           </Routes>
         </AuthProvider>
       </HashRouter>

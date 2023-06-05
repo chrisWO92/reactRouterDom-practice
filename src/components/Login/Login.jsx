@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useAuth } from './auth'
+import { useAuth } from '../../CustomHooks/auth'
 import { Navigate } from 'react-router-dom'
 
 const Login = () => {
@@ -17,7 +17,6 @@ const Login = () => {
   return (
     <>
       <h1>Login</h1>
-
       <form onSubmit={login}>
         <label>Escribe tu usuario</label>
         <input

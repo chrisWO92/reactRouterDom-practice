@@ -1,5 +1,5 @@
 import React from 'react'
-import { useAuth } from './auth'
+import { useAuth } from '../../CustomHooks/auth'
 
 const Logout = () => {
     const auth = useAuth()
@@ -10,7 +10,6 @@ const Logout = () => {
   return (
     <>
       <h1>Login</h1>
-
       <form onSubmit={logout}>
         <label>Segura que quieres salir?</label>
         <button type='submit'>Salir</button>

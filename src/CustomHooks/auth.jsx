@@ -2,9 +2,9 @@ import React, { createContext, useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
 
-const adminList = ['Cristian', 'Ricardo', 'Jenn', 'Rosario']
-const creators = ['Jose', 'Marina', 'Juan']
-const authors = ['Rosario', 'Camilo', 'Shaw']
+const admins = ['Cristian', 'Jenn', 'Rosario']
+const editors = ['Jose', 'Marina', 'Juan']
+const authors = ['Ricardo', 'Camilo', 'Shaw']
 
 const AuthContext = createContext()
 
@@ -13,11 +13,11 @@ const AuthProvider = ({ children }) => {
     const navigate = useNavigate()
 
     const login = ({username}) => {
-        const isAdmin = adminList.find(admin => admin === username)
-        const isCreator = creators.find(creator => creator === username)
+        const isAdmin = admins.find(admin => admin === username)
+        const isEditor = editors.find(creator => creator === username)
         const isAuthor = authors.find(author => author === username)
         
-        setUser({username, isAdmin, isCreator, isAuthor})
+        setUser({username, isAdmin, isEditor, isAuthor})
         navigate('/profile')
     }
 
