@@ -7,9 +7,11 @@ const useLocalStorage = (postsObjectName, defaultPostsObject) => {
   const [error, setError] = useState("");
   const [sinc, setSinc] = useState(false); */
 
+  let actualPostsArray = [...defaultPostsObject]
+
 
   const initialState = {
-    posts: blogdata,
+    posts: [],
     error: "",
     sinc: false
   }
@@ -43,12 +45,15 @@ const useLocalStorage = (postsObjectName, defaultPostsObject) => {
   useEffect(() => {
     try {
       setTimeout(() => {
+        //intenta obtener el item de localStorage
         const localStorageItem = localStorage.getItem(postsObjectName);
         let parsedPosts = [];
 
+        //si no existe le asigna el array definido por defecto
         if (!localStorageItem) {
           localStorage.setItem(postsObjectName, JSON.stringify(defaultPostsObject));
           parsedPosts = defaultPostsObject;
+          //si existe, lo carga en el array de datos luego de parsearlo
         } else {
           parsedPosts = JSON.parse(localStorageItem);
         }
