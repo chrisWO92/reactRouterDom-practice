@@ -25,12 +25,12 @@ const CommentsSection = ({
   return (
     <>
     
-      {comments.map((comment) => {
+      {comments && comments.map((comment) => {
         return (
           <>
             <CommentInfo comment={comment} editCommentMode={editCommentMode} />
-
-            {isUser && user.username === comment.username && (
+            
+            {user && user.username === comment.username && (
               <>
                 <DeleteEditCommentButtons
                   comment={comment}
@@ -47,7 +47,6 @@ const CommentsSection = ({
                 />
               </>
             )}
-
           </>
         );
       })}

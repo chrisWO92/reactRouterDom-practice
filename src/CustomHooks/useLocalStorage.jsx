@@ -1,12 +1,15 @@
 import { useEffect, useReducer, useState } from "react";
+import {blogdata} from '../blogdata'
+
 
 const useLocalStorage = (postsObjectName, defaultPostsObject) => {
  /*  const [posts, setPosts] = useState([]);
   const [error, setError] = useState("");
   const [sinc, setSinc] = useState(false); */
 
+
   const initialState = {
-    posts: [],
+    posts: blogdata,
     error: "",
     sinc: false
   }

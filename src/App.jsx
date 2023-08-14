@@ -10,9 +10,10 @@ import Logout from "./components/Logout/Logout";
 import { AuthProvider, AuthRoute } from "./CustomHooks/auth";
 import NewPost from "./NewPost";
 import useLocalStorage from "../src/CustomHooks/useLocalStorage";
+import { blogdata } from "./blogdata";
 
 function App() {
-  const { posts, savePost } = useLocalStorage("posts", []);
+  const { posts, savePost } = useLocalStorage("posts", blogdata);
 
   return (
     <>

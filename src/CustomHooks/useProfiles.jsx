@@ -1,7 +1,7 @@
 
 import { useAuth } from './auth'
 
-const useProfiles = ({blogpost}) => {
+const useProfiles = (blogpost) => {
 
 const auth = useAuth()
 
