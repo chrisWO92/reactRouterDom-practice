@@ -27,7 +27,7 @@ const CommentsSection = ({
     
       {comments && comments.map((comment) => {
         return (
-          <>
+          <div key={comments.indexOf(comment)}>
             <CommentInfo comment={comment} editCommentMode={editCommentMode} />
             
             {user && user.username === comment.username && (
@@ -47,7 +47,7 @@ const CommentsSection = ({
                 />
               </>
             )}
-          </>
+          </div>
         );
       })}
 

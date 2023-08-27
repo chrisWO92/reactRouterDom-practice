@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useAuth } from "../../CustomHooks/auth";
 import useProfiles from "../../CustomHooks/useProfiles";
 import useBlogPost from "../../CustomHooks/useBlogPost";
@@ -14,6 +14,7 @@ const BlogPost = ({ posts, savePost }) => {
   const user = auth?.user;
 
   const blogpost = posts.find((post) => post.slug === slug);
+  
   const title = blogpost?.title
   const author = blogpost?.author
   const content = blogpost?.content
@@ -59,7 +60,6 @@ const BlogPost = ({ posts, savePost }) => {
         newComment={newComment}
         commentsFunctions={commentsFunctions}
       />
-
      
     </>
   );

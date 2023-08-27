@@ -25,7 +25,7 @@ const Profile = () => {
       userTypes.push('user')
   }
 
-    console.log(userTypes)
+  console.log(userTypes)
 
   return (
     <>

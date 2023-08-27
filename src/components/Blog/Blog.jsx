@@ -14,7 +14,7 @@ const Blog = ({ posts }) => {
       <h1>Blog Page</h1>
       <ul>
         {posts.map((post) => (
-          <BlogLink key={post.slug} post={post} />
+          <BlogLink key={posts.indexOf(post)} post={post} />
         ))}
       </ul>
 

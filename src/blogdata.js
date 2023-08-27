@@ -6,7 +6,7 @@ blogdata.push({
     author: 'Rosario',
     comments: [
         {
-            username: 'zzHjnu',
+            username: 'Karina',
             comment: 'Debatible',
         },
     ]
@@ -18,7 +18,7 @@ blogdata.push({
     author: 'Camilo',
     comments: [
         {
-            username: 'sdfgdf',
+            username: 'Joselito',
             comment: 'Cierto',
         },
     ]
@@ -30,7 +30,7 @@ blogdata.push({
     author: 'Shaw',
     comments: [
         {
-            username: 'sefrf',
+            username: 'Marta',
             comment: 'Mepa que no',
         },
     ]

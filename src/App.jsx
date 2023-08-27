@@ -7,13 +7,15 @@ import Menu from "./components/Menu/Menu";
 import BlogPost from "./components/Blog/BlogPost";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
-import { AuthProvider, AuthRoute } from "./CustomHooks/auth";
+import { AuthProvider, AuthRoute, useAuth } from "./CustomHooks/auth";
 import NewPost from "./NewPost";
 import useLocalStorage from "../src/CustomHooks/useLocalStorage";
 import { blogdata } from "./blogdata";
 
 function App() {
+  
   const { posts, savePost } = useLocalStorage("posts", blogdata);
+  console.log(blogdata)
 
   return (
     <>

@@ -1,15 +1,8 @@
-import React from "react";
+import React from 'react'
 
-const DeleteEditCommentButtons = ({
-    comment,
-    editCommentMode,
-    deleteComment,
-    openEditCommentMode,}) => {
-  
+const DeleteEditCommentButtons = ({comment, deleteComment, openEditCommentMode}) => {
   return (
     <>
-      {!editCommentMode && (
-        <>
           <button
             onClick={() => {
               deleteComment(comment.comment);
@@ -25,9 +18,7 @@ const DeleteEditCommentButtons = ({
             Editar comentario
           </button>
         </>
-      )}
-    </>
-  );
-};
+  )
+}
 
-export default DeleteEditCommentButtons;
+export default DeleteEditCommentButtons
